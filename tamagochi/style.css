@@ -1,0 +1,27 @@
+body {
+    margin: 0 auto;
+    width: 400px;
+    height: 100vh;
+}
+
+.tamagochi__title_align {
+    text-align: center;
+}
+
+.tamagochi__type {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.tamagochi__level {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.tamagochi__action {
+    display: flex;
+    justify-content: space-between;  
+}
