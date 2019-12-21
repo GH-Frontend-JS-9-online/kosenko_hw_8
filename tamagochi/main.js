@@ -48,32 +48,97 @@ function startHard() {
     }, 5000);  
 }
 
+function lifeTime() {
+    let time = 0;
+    life = setInterval(() => {
+        time++;
+        document.getElementById("valueTime").innerHTML = time + ' sec.';
+    }, 1000);
+}
+
 function stop() {
     clearInterval(timerId);
     alert("Game over!");
+    clearInterval(life);
+    document.getElementById("restart").addEventListener('click', function() {
+        window.location.reload();
+    });
+}
+
+function start() {
+    if (select.selectedIndex === 0) {
+        index = 0;
+        setStatsEasy();
+        startEasy();
+        document.getElementById("valuePet").innerHTML = select.value;
+        eat(index);
+        run(index);
+        wash(index);
+    } else if (select.selectedIndex === 1) {
+        index = 1;
+        setStatsHard();
+        startHard();
+        document.getElementById("valuePet").innerHTML = select.value;
+        eat(index);
+        run(index);
+        wash(index);
+    }
+    lifeTime()
 }
 
 function eat() {
-    food = food + 30;
+    if (index === 0) {
+        if (food <= 70) {
+            food = food + 30;
+        } else {
+            food = 100;
+        }
+    } else if (index === 1) {
+        if (food <= 40) {
+            food = food + 30;
+        } else {
+            food = 70;
+        }
+    }
     clean = clean - 20;
     document.getElementById("valueFood").innerHTML = food;
     document.getElementById("valueClean").innerHTML = clean;
 }
 
 function wash() {
-    clean = clean + 40;
+    if (index === 0) {
+        if (clean <= 60) {
+            clean = clean + 40;
+        } else {
+            clean = 100;
+        }
+    } else if (index === 1) {
+        if (clean <= 30) {
+            clean = clean + 40;
+        } else {
+            clean = 70;
+        }
+    }
     happiness = happiness - 20;
     document.getElementById("valueClean").innerHTML = clean;
     document.getElementById("valueHappiness").innerHTML = happiness;
 }
 
 function run() {
-    happiness = happiness + 15;
+    if (index === 0) {
+        if (happiness <= 70) {
+            happiness = happiness + 30;
+        } else {
+            happiness = 100;
+        }
+    } else if (index === 1) {
+        if (happiness <= 40) {
+            happiness = happiness + 30;
+        } else {
+            happiness = 70;
+        }
+    }
     food =food - 10;
     document.getElementById("valueHappiness").innerHTML = happiness;
     document.getElementById("valueFood").innerHTML = food;
 }
-
-
-easy.addEventListener("click", startEasy);
-hard.addEventListener("click", startHard);

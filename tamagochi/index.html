@@ -12,16 +12,21 @@
     <div class="tamagochi__level">
         <h4 class="tamagochi__title_align">Select type of Tamagotchi:</h4>
         <div class="tamagochi__type">
-            <div>
+            <!-- <div>
                 <p>Fluffy kitty</p>
                 <button id="easy" onclick="setStatsEasy()">Easy level</button>
             </div>
             <div>
                 <p>Lazy pug</p>
                 <button id="hard" onclick="setStatsHard()">Hard level</button>
-            </div>
+            </div> -->
+            <select id="select">
+                <option value="Fluffy kitty">Easy level</option>
+                <option value="Lazy pug">Hard level</option>
+            </select>
+            <p>Your pet is: <span id="valuePet"></span></p>
       </div>
-        <!-- <button onclick="start()">Start</button> -->
+        <button onclick="start()">Start</button>
     </div>
     <div>
         <h4 class="tamagochi__title_align">Actions</h4>
@@ -36,6 +41,12 @@
         <p>Food: <span id="valueFood"></span></p>
         <p>Clean: <span id="valueClean"></span></p>
         <p>Happiness: <span id="valueHappiness"></span></p>
+    </div>
+    <div>
+        <p class="time">Your pet lived: <span id="valueTime"></span> </p>
+    </div>
+    <div>
+        <button id="restart">Restart Game</button>
     </div>
 
     <script src="main.js"></script>

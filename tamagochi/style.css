@@ -25,3 +25,9 @@ body {
     display: flex;
     justify-content: space-between;  
 }
+
+.time {
+    font-weight: 700;
+    color: #457585;
+    padding-top: 20px;
+}
