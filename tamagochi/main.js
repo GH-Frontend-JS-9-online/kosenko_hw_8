@@ -28,10 +28,8 @@ function startEasy() {
         document.getElementById("valueFood").innerHTML = food;
         document.getElementById("valueClean").innerHTML = clean;
         document.getElementById("valueHappiness").innerHTML = happiness;
-        if (food <= 0 || happiness <= 0 || clean <= 0) {
-            stop();
-        }
-    }, 5000);
+        stop();
+    }, 5000)
 }
 
 function startHard() {
@@ -42,10 +40,8 @@ function startHard() {
         document.getElementById("valueFood").innerHTML = food;
         document.getElementById("valueClean").innerHTML = clean;
         document.getElementById("valueHappiness").innerHTML = happiness;
-        if (food <= 0 || happiness <= 0 || clean <= 0) {
-            stop();
-        }
-    }, 5000);  
+        stop();
+    }, 5000) 
 }
 
 function lifeTime() {
@@ -57,9 +53,11 @@ function lifeTime() {
 }
 
 function stop() {
-    clearInterval(timerId);
-    alert("Game over!");
-    clearInterval(life);
+    if (food <= 0 || happiness <= 0 || clean <= 0) {
+        clearInterval(timerId);
+        alert("Game over!");
+        clearInterval(life);
+    }
     document.getElementById("restart").addEventListener('click', function() {
         window.location.reload();
     });
@@ -103,6 +101,7 @@ function eat() {
     clean = clean - 20;
     document.getElementById("valueFood").innerHTML = food;
     document.getElementById("valueClean").innerHTML = clean;
+    stop();
 }
 
 function wash() {
@@ -122,6 +121,7 @@ function wash() {
     happiness = happiness - 20;
     document.getElementById("valueClean").innerHTML = clean;
     document.getElementById("valueHappiness").innerHTML = happiness;
+    stop();
 }
 
 function run() {
@@ -141,4 +141,5 @@ function run() {
     food =food - 10;
     document.getElementById("valueHappiness").innerHTML = happiness;
     document.getElementById("valueFood").innerHTML = food;
+    stop();
 }
